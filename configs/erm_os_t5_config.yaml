@@ -1,0 +1,48 @@
+---
+data:
+  target_language: "sql"
+  train: "dataset/wikisql/original_split/train_split.json"
+  dev: "dataset/wikisql/original_split/dev_split.json"
+  test: "dataset/wikisql/original_split/test_split.json"
+  dataset_vocab: "dataset/wikisql/query_vocab.json"
+  schema:
+    sql:
+      add_schema_to_input_flag: True
+      db_attributes_dict: "dataset/wikisql/table_id2new_attrs_for_parsing.json"
+      db2db_path: "dataset/wikisql/table_name2db_path_dict.json"
+    sparql:
+      add_schema_to_input_flag: False
+
+model:
+  used_model: "t5"
+  vanilla:
+    tokenizer: "cointegrated/rubert-tiny"
+    model: "cointegrated/rubert-tiny"
+    enable_attention: True
+    epochs_num: 120
+    bert_finetune_rate: 0.00006
+    learning_rate: 0.0005
+    bert_warmup_init_finetuning_learning_rate: 0.00003
+    warm_up_init_learning_rate: 0.0005
+    warmup_steps: 4000
+    batch_size: 32
+    n_last_layers2train: 1
+    use_pretrained_embeddings: False
+    pretrained_embeddings_path: "experiments/pretrained_lm_sparql_embs.pt"
+    embeddings_size: 300
+  t5:
+    tokenizer: "t5-base"
+    model: "t5-base"
+    epochs_num: 100
+    learning_rate: 0.0002
+    batch_size: 32
+    optimizer: 'adam'
+
+
+test_one_batch: False
+run_name: "os_sql_schema_erm_control_v3"
+
+# for testing
+model_type: 'erm'
+save_model_path: "experiments"
+inference_model_name: ""

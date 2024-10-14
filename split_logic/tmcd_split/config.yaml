@@ -1,0 +1,11 @@
+---
+input_language: "english"
+target_language: "sql"
+dataset_path: "original_datasets/whole_wikisql.json"
+save_split_dir_path: "dataset/wikisql/tmcd_split"
+load_compounds_from_file: False
+save_parsed_compounds: True
+alpha: 0.1
+schema:
+  sql:
+    db_attributes_dict: "dataset/wikisql/table_id2new_attrs_for_parsing.json"

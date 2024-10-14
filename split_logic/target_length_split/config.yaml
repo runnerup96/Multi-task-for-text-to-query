@@ -1,0 +1,7 @@
+---
+input_language: "english"
+target_language: "sql"
+dataset_path: "original_datasets/whole_wikisql.json"
+save_split_dir_path: "dataset/wikisql/target_length_split"
+train_percentile: 85
+train_is_longer_than_test: False
