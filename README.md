@@ -38,9 +38,7 @@ For training/inference set up environment variables:
   
 #### Splits running
 
-The prepared splits are in ``dataset`` folder. 
-
-If you want to make split yourself, load original dataset splits:
+To make split yourself, load original dataset splits:
 
 * WikiSQL: https://github.com/salesforce/WikiSQL
 * LcQuad: https://github.com/AskNowQA/LC-QuAD2.0
